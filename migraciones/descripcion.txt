@@ -1,0 +1,59 @@
+Entidades y Atributos Principales
+
+    Usuarios
+        ID (clave primaria)
+        Nombre
+        Correo electrónico
+        Contraseña (almacenada usando una hash segura)
+        RolID (clave foránea que vincula con la tabla de Roles)
+
+    Roles
+        ID (clave primaria)
+        Nombre del Rol (Ej: Administrador, Cliente, Vendedor)
+
+    Categorías
+        ID (clave primaria)
+        Nombre de la Categoría
+        Descripción
+
+    Productos
+        ID (clave primaria)
+        Nombre del Producto
+        Descripción
+        Precio
+        Cantidad en Stock
+        CategoríaID (clave foránea que vincula con la tabla de Categorías)
+
+    Ventas (o Pedidos)
+        ID (clave primaria)
+        UsuarioID (clave foránea que vincula con la tabla de Usuarios)
+        Fecha de la Venta
+        Total
+
+    Detalle de Ventas (o Detalle de Pedidos)
+        ID (clave primaria)
+        VentaID (clave foránea que vincula con la tabla de Ventas)
+        ProductoID (clave foránea que vincula con la tabla de Productos)
+        Cantidad
+        Precio al momento de la venta
+
+Relaciones
+
+    Usuarios y Roles: Un rol puede estar asignado a muchos usuarios, pero un usuario tiene asignado un solo rol. Esto es una relación de uno a muchos (1:N) entre Roles y Usuarios.
+    Productos y Categorías: Una categoría puede incluir muchos productos, pero un producto pertenece a una sola categoría. Esto es una relación de uno a muchos (1:N) entre Categorías y Productos.
+    Ventas y Usuarios: Un usuario puede tener muchas ventas, pero una venta pertenece a un solo usuario. Esto es una relación de uno a muchos (1:N) entre Usuarios y Ventas.
+    Ventas y Productos (a través de Detalle de Ventas): Una venta puede incluir varios productos, y un producto puede estar en varias ventas. Esto es una relación de muchos a muchos (N:M), que se maneja a través de una tabla intermedia, en este caso, Detalle de Ventas.
+
+
+{
+  
+    "email": "more@gma1.com",
+    "password": "12234455"
+}
+
+
+{
+    
+        "Nombre": "ASEO",
+        "Descripcion": "Limpido D1"
+    }
